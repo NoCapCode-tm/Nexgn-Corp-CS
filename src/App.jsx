@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ComingSoon from './components/ComingSoon';
+import ComingSoon from '../src/pages/ComingSoon.jsx';
 
 function App() {
   return (
