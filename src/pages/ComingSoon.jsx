@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ComingSoon.module.css';
+import { Helmet } from 'react-helmet-async'; // <-- THIS IS THE MISSING LINE
 
 // TODO: Replace these with your actual asset imports
 import heroImage from '../assets/coming-soon-hero.png';
