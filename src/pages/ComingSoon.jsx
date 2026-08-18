@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import styles from './ComingSoon.module.css';
+import axios from "axios"
 
 // Ensure your 1440x745 PNG is placed in the assets folder
 import heroImage from '../assets/coming-soon-hero.png';
@@ -8,8 +9,36 @@ import heroImage from '../assets/coming-soon-hero.png';
 export default function ComingSoon() {
   // Using exactly what's in the design mockup
   const currentDate = "20 Sep, 2026";
+  const[overlay,setOverlay]=useState(false)
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    interest: ''
+  })
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+   try {
+     const response = await axios.post("https://nexgn-backend.onrender.com/api/v1/admin/notified",{
+       name:formData.fullName,
+       email:formData.email,
+       interest:formData.interest
+     },{withCredentials:true})
+     console.log(response.data.message)
+     setOverlay(false)
+   } catch (error) {
+     console.log("Something went wrong",error.message)
+   }
+
+
+  }
 
   return (
+    <>
     <div className={styles.pageContainer}>
       
       <Helmet>
@@ -32,7 +61,7 @@ export default function ComingSoon() {
         <div className={styles.infoWrapper}>
           <div className={styles.topActions}>
             <span className={styles.dateText}>{currentDate}</span>
-            <button className={styles.notifyBtn}>Get notified</button>
+            <button className={styles.notifyBtn} onClick={()=>{setOverlay(true)}}>Get notified</button>
           </div>
           <h2 className={styles.tagline}>
             Replace manual paperwork with borderless, lightning-fast workflows.
@@ -65,5 +94,61 @@ export default function ComingSoon() {
       </div>
 
     </div>
+
+    {overlay && (
+      <div className={styles.overlayBackdrop} onClick={() => setOverlay(false)}>
+      <div className={styles.overlayCard} onClick={(e) => e.stopPropagation()}>
+        <h2 className={styles.overlayTitle}>
+          Get <span className={styles.red}>notified</span>
+        </h2>
+
+        <form onSubmit={handleSubmit} className={styles.overlayForm}>
+          <div className={styles.formGroup}>
+            <label>
+              Full name<span className={styles.asterisk}>*</span>
+            </label>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Enter..."
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>
+              Email Address<span className={styles.asterisk}>*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter..."
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Interest</label>
+            <textarea
+              name="interest"
+              placeholder="Message"
+              rows="5"
+              value={formData.interest}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button type="submit" className={styles.submitBtn}>
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    )}
+    </>
   );
 }

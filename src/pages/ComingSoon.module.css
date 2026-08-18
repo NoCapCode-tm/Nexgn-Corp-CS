@@ -216,3 +216,141 @@
     font-size: clamp(4rem, 20vw, 4rem)
    }
 }
+
+/* ===== BACKDROP ===== */
+.overlayBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.05);
+  /* backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* ===== GLASSMORPHIC CARD ===== */
+.overlayCard {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 36px;
+  /* box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5); */
+}
+
+.overlayTitle {
+  font-size: 44px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 32px;
+}
+
+.red {
+  color: #ff1e1e;
+}
+
+/* ===== FORM ===== */
+.overlayForm {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: white;
+}
+
+.asterisk {
+  color: #ff1e1e;
+  margin-left: 2px;
+  font-size:25px;
+  
+}
+
+.formGroup input,
+.formGroup textarea {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #1a1a1a;
+  outline: none;
+  font-family: inherit;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #999999;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  box-shadow: 0 0 0 2px #ff1e1e;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.submitBtn {
+  background-color: #ff1e1e;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submitBtn:hover {
+  background-color: #d61717;
+  transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .overlayCard {
+    padding: 28px 22px;
+  }
+
+  .overlayTitle {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
