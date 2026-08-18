@@ -1,77 +1,68 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import styles from './ComingSoon.module.css';
-import { Helmet } from 'react-helmet-async'; // <-- THIS IS THE MISSING LINE
 
-// TODO: Replace these with your actual asset imports
+// Ensure your 1440x745 PNG is placed in the assets folder
 import heroImage from '../assets/coming-soon-hero.png';
 
-const ComingSoon = () => {
-  // Using the current date as a placeholder based on your design
-  const currentDate = "August 13, 2026";
+export default function ComingSoon() {
+  // Using exactly what's in the design mockup
+  const currentDate = "Date";
 
   return (
     <div className={styles.pageContainer}>
       
-      {/* SEO & Meta Tags */}
       <Helmet>
         <title>Nexgn | Coming Soon</title>
         <meta name="description" content="Replace manual paperwork with borderless, lightning-fast workflows." />
       </Helmet>
-      
-      {/* Top Logo */}
-        <header className={styles.header}>
-            <svg width="145" height="36" viewBox="0 0 145 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M38.6523 0C42.489 0.000225655 45.5996 3.11055 45.5996 6.94727V38.6523C45.5996 38.7397 45.595 38.8265 45.5918 38.9131L34.1758 27.7461C32.8045 26.4047 30.5929 26.4164 29.2363 27.7725L26.6494 30.3604C25.2931 31.7169 25.3054 33.9037 26.6768 35.2451L37.2617 45.5996H7.50293L36.6445 17.0938C38.0155 15.7522 38.0272 13.5644 36.6709 12.208L34.084 9.62109C32.7276 8.2648 30.5159 8.25267 29.1445 9.59375L0 38.1035V8.29199L11.3721 19.416C12.7434 20.7574 14.955 20.7461 16.3115 19.3896L18.8984 16.8018C20.2543 15.4452 20.2422 13.2583 18.8711 11.917L6.69531 0.00585938C6.77894 0.00287788 6.86291 0 6.94727 0H38.6523Z" fill="#E22A2A"/>
-            </svg>
-        </header>
 
-      {/* Info Section (Tagline, Button, Date) */}
-      <section className={styles.infoSection}>
+      {/* Top Logo */}
+      <header className={styles.header}>
+          <svg width="60" height="60" viewBox="0 0 145 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M72.5 0C92.5 0 110.5 15.5 110.5 35.5V110.5C110.5 110.5 110.5 110.5 110.5 110.5L82.5 82.5C79.5 79.5 74.5 79.5 71.5 82.5L65.5 88.5C62.5 91.5 62.5 96.5 65.5 99.5L90.5 124.5H19.5L90.5 53.5C93.5 50.5 93.5 45.5 90.5 42.5L84.5 36.5C81.5 33.5 76.5 33.5 73.5 36.5L0 110.5V19.5L27.5 47.5C30.5 50.5 35.5 50.5 38.5 47.5L44.5 41.5C47.5 38.5 47.5 33.5 44.5 30.5L15.5 1.5C15.5 1.5 15.5 1.5 15.5 1.5H72.5Z" fill="#E22A2A"/>
+          </svg>
+      </header>
+
+      {/* Main Content Wrapper (Locks max width for 4K screens) */}
+      <div className={styles.contentWrapper}>
         
-        <div className={styles.taglineBox}>
+        {/* Info Section (Mobile First Order) */}
+        <div className={styles.infoWrapper}>
+          <div className={styles.topActions}>
+            <span className={styles.dateText}>{currentDate}</span>
+            <button className={styles.notifyBtn}>Get notified</button>
+          </div>
           <h2 className={styles.tagline}>
             Replace manual paperwork with borderless, lightning-fast workflows.
           </h2>
         </div>
 
-        <div className={styles.actionBox}>
-          <button className={styles.notifyBtn}>
-            Get notified
-          </button>
-          <span className={styles.dateText}>{currentDate}</span>
-        </div>
+        {/* Main Visual Centerpiece */}
+        <main className={styles.mainVisual}>
+          
+          {/* Background Huge Text - Split for Left/Right Alignment */}
+          <div className={styles.hugeTextContainer}>
+            <h1 className={styles.hugeTextTop}>COMING</h1>
+            <h1 className={styles.hugeTextBottom}>SOON</h1>
+          </div>
 
-      </section>
-
-      {/* Main Visual Centerpiece */}
-      <main className={styles.mainVisual}>
-        
-        {/* Background Huge Text */}
-        <div className={styles.hugeTextContainer}>
-          <h1 className={styles.hugeText}>
-            COMING<br className={styles.mobileBreak} /> SOON
-          </h1>
-        </div>
-
-        {/* Foreground Hero Image */}
-        <div className={styles.heroWrapper}>
+          {/* Foreground Hero Image */}
           <img 
             src={heroImage} 
-            alt="Nexgn Coming Soon" 
+            alt="Nexgn Coming Soon Character" 
             className={styles.heroImage} 
           />
           
-          {/* Footer Text - Positioned over the chest on desktop, below on mobile */}
+          {/* Footer Text Overlay */}
           <div className={styles.footerText}>
             <p>Designed with Trust</p>
             <p>Engineered for the World.</p>
           </div>
-        </div>
 
-      </main>
+        </main>
+      </div>
 
     </div>
   );
-};
-
-export default ComingSoon;  
+}
