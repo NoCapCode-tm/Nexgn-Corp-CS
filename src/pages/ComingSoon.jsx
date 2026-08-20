@@ -40,6 +40,14 @@ try {
       // 1. Instantly close the overlay so the user sees the clean main page
       setOverlay(false);
       
+      // GA4 Conversion Tracking: Log a "generate_lead" event
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "generate_lead", {
+          event_category: "Waitlist",
+          event_label: "Get Notified Form Submitted",
+        });
+      }
+      
       // 2. Clear the form data in the background
       setFormData({ fullName: '', email: '', interest: '' });
 
