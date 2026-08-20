@@ -23,8 +23,8 @@
 /* This locks the width so 4K monitors don't stretch it infinitely */
 .contentWrapper {
   width: 100%;
-  max-width: 1440px; 
-  padding: 0 5%;
+  /* max-width: 1440px;  */
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -37,7 +37,8 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid #E22A2A; /* Thin red line matches design */
+  margin-top:50px;
+  border-bottom: 1px solid #FF0000; /* Thin red line matches design */
   padding-bottom: 1rem;
   z-index: 10;
 }
@@ -50,13 +51,14 @@
 }
 
 .dateText {
-  color: #E22A2A;
-  font-weight: 600;
+  color: #FF0000;
+  font-weight: 500;
   font-size: 1.25rem;
+  letter-spacing: 1px;
 }
 
 .notifyBtn {
-  background-color: #E22A2A;
+  background-color: #FF0000;
   color: #ffffff;
   border: none;
   padding: 0.4rem 1.2rem;
@@ -66,9 +68,10 @@
 }
 
 .tagline {
-  color: #E22A2A;
+  color: #FF0000;
   font-size: 1.5rem;
-  font-weight: 600;
+  letter-spacing: 1px;
+  font-weight: 500;
   margin: 0;
   line-height: 1.3;
 }
@@ -99,23 +102,23 @@
 
 /* Pushes COMING to the left */
 .hugeTextTop {
-  font-size: clamp(6rem, 18vw, 15rem);
-  font-weight: 800;
-  color: #E22A2A;
-  margin: 0;
+  font-size: clamp(6rem, 20vw, 14rem);
+  font-weight: 600;
+  color: #FF0000;
+  margin-top:-100px;
   line-height: 0.9;
-  letter-spacing: -0.02em;
+  letter-spacing: 1px;
   align-self: flex-start; 
 }
 
 /* Pushes SOON to the right */
 .hugeTextBottom {
-  font-size: clamp(6rem, 18vw, 15rem);
-  font-weight: 800;
-  color: #E22A2A;
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 600;
+  color: #FF0000;
   margin: 0;
   line-height: 0.9;
-  letter-spacing: -0.02em;
+  letter-spacing: 1px;
   align-self: flex-end; 
 }
 
@@ -150,9 +153,9 @@
    DESKTOP OVERRIDES (768px and up)
    ========================================= */
 @media (min-width: 768px) {
-  .contentWrapper {
+  /* .contentWrapper {
     padding: 0 8%;
-  }
+  } */
 
   /* Puts tagline left, actions right */
   .infoWrapper {
@@ -164,7 +167,7 @@
   .tagline {
     order: 1;
     font-size: clamp(1.2rem, 1.8vw, 1.75rem);
-    max-width: 60%;
+    /* max-width: 60%; */
   }
 
   .topActions {
@@ -190,5 +193,228 @@
 @media (min-width: 1440px) {
   .heroImage {
         width: 1440px;
+  }
+}
+@media (max-width: 768px){
+   .heroImage{
+    max-width:none;
+    width:718px;
+   }
+}
+@media (max-width: 500px){
+  .heroImage{
+    
+    width:750px;
+   }
+   .hugeTextContainer{
+    top:36%;
+   }
+   .hugeTextTop{
+      font-size: clamp(4rem, 20vw, 4rem)
+   }
+   .hugeTextBottom{
+    font-size: clamp(4rem, 20vw, 4rem)
+   }
+}
+
+/* ===== BACKDROP ===== */
+.overlayBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.05);
+  /* backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* ===== GLASSMORPHIC CARD ===== */
+.overlayCard {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 36px;
+  /* box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5); */
+}
+
+.overlayTitle {
+  font-size: 44px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 32px;
+}
+
+.red {
+  color: #ff1e1e;
+}
+
+/* ===== FORM ===== */
+.overlayForm {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: white;
+}
+
+.asterisk {
+  color: #ff1e1e;
+  margin-left: 2px;
+  font-size:25px;
+  
+}
+
+.formGroup input,
+.formGroup textarea {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #1a1a1a;
+  outline: none;
+  font-family: inherit;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #999999;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  box-shadow: 0 0 0 2px #ff1e1e;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.submitBtn {
+  background-color: #ff1e1e;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submitBtn:hover {
+  background-color: #d61717;
+  transform: translateY(-1px);
+}
+/* ===== DISABLED BUTTON STATE ===== */
+.submitBtn:disabled {
+  background-color: #717171;
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== CUSTOM TOASTER ===== */
+.toast {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 18px 28px;
+  border-radius: 16px; /* Softer, modern corners */
+  font-size: 15px;
+  font-weight: 600;
+  z-index: 9999;
+  
+  /* Premium Glassmorphism */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); /* Soft, wide drop shadow */
+  
+  animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Success State - Frosted White with Nexgn Red Accent */
+.success {
+  background-color: rgba(255, 255, 255, 0.85); /* Translucent white */
+  border: 1px solid rgba(255, 0, 0, 0.1); /* Very subtle red outline */
+  border-left: 5px solid #FF0000; /* Bold red accent bar on the left */
+  color: #1a1a1a; /* Dark text for crisp readability */
+}
+
+/* Error State - Frosted Dark Red */
+.error {
+  background-color: rgba(255, 0, 0, 0.85); /* Translucent red */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Slide in animation for the toaster */
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    border-left: none; /* Remove accent bar on mobile for symmetry */
+    border-top: 4px solid #FF0000; /* Move accent to top */
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .overlayCard {
+    padding: 28px 22px;
+  }
+
+  .overlayTitle {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    padding: 14px;
+    font-size: 15px;
   }
 }
