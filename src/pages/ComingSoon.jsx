@@ -5,6 +5,7 @@ import axios from "axios";
 
 // Ensure your 1440x745 PNG is placed in the assets folder
 import heroImage from '../assets/coming-soon-hero.png';
+import { toast } from 'react-toastify';
 
 export default function ComingSoon() {
   const currentDate = "20 Sep, 2026";
