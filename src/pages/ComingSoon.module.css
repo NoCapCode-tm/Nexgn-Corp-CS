@@ -55,6 +55,12 @@
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: 1px;
+  
+  /* Add these lines to make it interactive and prevent layout shifts */
+  cursor: pointer;
+  display: inline-block;
+  min-width: 155px; /* Adjust slightly if the font renders larger on your end */
+  text-align: left;
 }
 
 .notifyBtn {
