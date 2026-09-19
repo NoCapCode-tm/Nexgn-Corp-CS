@@ -2,10 +2,10 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import ComingSoon from '../src/pages/ComingSoon.jsx';
-import PrivacyPolicy from '../src/pages/PrivacyPolicy.jsx';
-import HelpCenter from '../src/pages/HelpCenter.jsx';
-import TermsServices from '../src/pages/TermsServices.jsx';
-import TrustSecurity from '../src/pages/TrustSecurity.jsx';
+import PrivacyPolicy from '../src/sub-pages/PrivacyPolicy.jsx';
+import HelpCenter from '../src/sub-pages/HelpCenter.jsx';
+import TermsServices from '../src/sub-pages/TermsServices.jsx';
+import TrustSecurity from '../src/sub-pages/TrustSecurity.jsx';
 
 function App() {
   return (
