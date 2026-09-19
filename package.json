@@ -18,7 +18,11 @@
     "inlineCss": false,
     "puppeteerExecutablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
     "include": [
-      "/"
+      "/",
+      "/privacy",
+      "/help",
+      "/terms",
+      "/trust"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [
