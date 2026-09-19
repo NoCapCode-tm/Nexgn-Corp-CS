@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.footerWrapper {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+
+  position: relative;
+  z-index: 10;
+
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  box-shadow: 0px -15px 28.9px 0px #0000007A;
+}
+
+/* =========================================
+   1. CTA CARD STYLING
+========================================= */
+.ctaContainer {
+  width: 100%;
+  max-width: clamp(1200px, 92vw, 2400px);
+  padding: clamp(20px, 3vw, 50px) clamp(16px, 3vw, 40px);
+  box-sizing: border-box;
+}
+
+.ctaCard {
+  width: 100%;
+  min-height: clamp(280px, 22vw, 480px);
+  background-color: #f8f9fa;
+  border-radius: clamp(16px, 2vw, 32px);
+  border: 1px solid #eef0f2;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* image absolute, full width/height, resizes responsively */
+.ctaBgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* transparent overlay on top of image */
+.ctaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.35); /* adjust opacity/color as needed */
+  z-index: 1;
+}
+
+.ctaContent {
+  padding: clamp(32px, 4vw, 70px) clamp(24px, 4vw, 60px);
+  /* max-width: clamp(380px, 38vw, 650px); */
+  width:100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaHeading {
+  font-size: clamp(24px, 2.4vw, 44px);
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  /* line-height: 2; */
+  margin-bottom: clamp(10px, 1vw, 16px);
+
+  letter-spacing: 1px;
+}
+
+.ctaSubheading {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: clamp(24px, 2.5vw, 40px);
+}
+
+.ctaButtonWrapper {
+  display: flex;
+}
+
+.ctaButton {
+  background-color: #e8261c;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(13px, 0.95vw, 16px);
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: clamp(12px, 1vw, 16px) clamp(22px, 1.8vw, 36px);
+  border-radius: clamp(8px, 0.8vw, 12px);
+  display: inline-block;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.ctaButton:hover {
+  background-color: #cb1d14;
+  transform: translateY(-2px);
+}
+/* =========================================
+   2. FOOTER MAIN CONTENT & GRID
+========================================= */
+.footerInner {
+  width: 100%;
+  max-width: clamp(1200px, 92vw, 2400px);
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 3vw, 40px) 0;
+  box-sizing: border-box;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr 0.65fr 0.65fr 0.75fr;
+  gap: clamp(16px, 2vw, 36px);
+  align-items: start;
+  padding-bottom: clamp(40px, 5vw, 80px);
+}
+
+.footerHeading {
+  font-size: clamp(15px, 1.1vw, 20px);
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.footerEmail {
+  font-size: clamp(13px, 0.95vw, 16px);
+  color: #666666;
+  margin-bottom: 14px;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.socialIcon {
+  color: #4b4f56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+  color: #e8261c;
+  transform: translateY(-2px);
+}
+
+.legalBox p {
+  font-size: clamp(11px, 0.75vw, 13px);
+  line-height: 1.65;
+  color: #666666;
+  margin: 0;
+}
+
+/* "Proudly Made In Bharat" */
+.proudlyCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.proudlyText {
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 2px;
+}
+
+.madeInBharat {
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.orangeText { color: #ff8a00; }
+.blueText { color: #4a72e8; }
+.greenText { color: #2fa84f; }
+
+/* Link Columns */
+.linkColCompany,
+.linkColResources,
+.linkColLegal {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.8vw, 14px);
+}
+
+.linkColCompany h4,
+.linkColResources h4,
+.linkColLegal h4 {
+  font-size: clamp(12px, 0.85vw, 15px);
+  font-weight: 700;
+  color: #666666;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.linkColCompany a,
+.linkColResources a,
+.linkColLegal a {
+  font-size: clamp(12.5px, 0.9vw, 15px);
+  color: #111111;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.linkColCompany a:hover,
+.linkColResources a:hover,
+.linkColLegal a:hover {
+  color: #e8261c;
+}
+
+/* Visibility toggles */
+.desktopOnly { display: block; }
+.mobileOnly { display: none; }
+
+/* =========================================
+   3. FULL BRAND LOGO
+========================================= */
+.footerBrand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(10px, 2vw, 30px) 0 clamp(20px, 3vw, 50px);
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+.brandImage {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS (Tablet & Mobile)
+========================================= */
+
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .ctaContent {
+    max-width: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile, adjust the radius to not be so dramatic if preferred, 
+     but keeping it 40px here as requested in design specs */
+  .footerWrapper {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+
+  .footerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 24px;
+    padding-bottom: 36px;
+  }
+
+  .brandTitleCol {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  .proudlyCol {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .desktopOnly { display: none; }
+  .mobileOnly { 
+    display: block;
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .linkColCompany { grid-column: 1; grid-row: 3; }
+  .linkColResources { grid-column: 2; grid-row: 3; }
+  .linkColLegal { grid-column: 3; grid-row: 3; }
+
+  .linkColCompany a,
+  .linkColResources a,
+  .linkColLegal a {
+    white-space: normal;
+    font-size: 12px;
+  }
+
+  .ctaCard {
+    min-height: 260px;
+    background-position: right center;
+  }
+
+  .ctaContent {
+    max-width: 100%;
+    padding: 24px 20px;
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 0.65) 45%, rgba(255, 255, 255, 0.4) 100%);
+    border-radius: 16px; */
+  }
+
+  .ctaHeading {
+    font-size: 20px;
+  }
+
+  .ctaSubheading {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .ctaButton {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .linkColCompany h4,
+  .linkColResources h4,
+  .linkColLegal h4 {
+    font-size: 10.5px;
+  }
+
+  .linkColCompany a,
+  .linkColResources a,
+  .linkColLegal a {
+    font-size: 11px;
+  }
+}
+/* .footerReveal {
+  will-change: opacity, transform;
+}
+
+.footerBrand {
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footerReveal,
+  .footerBrand {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+} */
+.footerScene {
+  position: relative;
+  width: 100%;
+
+  /* margin-top: -100vh; */
+  padding-top: 100vh;
+
+  z-index: 20;
+  overflow: visible;
+}
+
+.footerScene .footerWrapper {
+  position: relative;
+  margin-top: 0;
+  z-index: 20;
+  will-change: transform;
+}
